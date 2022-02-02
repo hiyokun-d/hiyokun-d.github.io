@@ -1,0 +1,444 @@
+*{
+    /* make the text can't be selected */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#container {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+
+    /* make it to the center */
+    position: relative;
+    top: 90%;
+
+    -webkit-transform: translateY(-30%);
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    
+    /* make transition slide down */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+    /* make it to the center */
+    text-align: center;
+
+    /* make it better */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: #000;
+
+    /* make it like 3D */
+    -webkit-box-shadow: 20px 20px 40px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 20px 20px 40px 3px rgba(0,0,0,0.75);
+    box-shadow: 20px 20px 40px 3px rgba(0,0,0,0.75);
+
+    /* 3D effect */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make it to the center */
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    /* make it to the center */
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    /* make it rounded */
+    border-radius: 10px;
+
+    /* make animation slide down */
+    -webkit-animation: slideDown 0.5s ease-in-out;
+    -moz-animation: slideDown 0.5s ease-in-out;
+    -o-animation: slideDown 0.5s ease-in-out;
+    animation: slideDown 0.5s ease-in-out;
+
+    /* make it better and better */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* make idleAnimation */
+    -webkit-animation-name: idleAnimation;
+    -moz-animation-name: idleAnimation;
+    -o-animation-name: idleAnimation;
+    animation-name: idleAnimation;
+
+    /* implement swing animation */
+}
+
+#title {
+    /* make it kinda better */
+    font-size: 2em;
+    font-weight: bold;
+    color: #000;
+
+    /* make it to the center */
+    text-align: center;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+#title-countDown {
+    /* make it better */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+
+    /* make it to the center */
+    text-align: center;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make 3D */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make it to the center */
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    /* make it to the center */
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* neon effect */
+    -webkit-animation: neon 1s ease-in-out;
+    -moz-animation: neon 1s ease-in-out;
+    -o-animation: neon 1s ease-in-out;
+    animation: neon 1s ease-in-out;
+
+    /* make it look elegant */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+#countDown {
+    /* make it looks like countDown */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: #000;
+
+    /* make it to the center */
+    text-align: center;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+#text-countDown {
+    /* make it to the center */
+    text-align: center;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it cool */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+}
+
+#footers {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-animation: slideUp 2s linear;
+    -moz-animation: slideUp 2s linear;
+    -o-animation: slideUp 2s linear;
+    animation: slideUp 2s linear;
+    -webkit-box-shadow: 0px 0px 10px #000;
+    -moz-box-shadow: 0px 0px 10px #000;
+    box-shadow: 0px 0px 10px #000;
+    width: max-content !important;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#some-quotes {
+
+    /* make it down */
+    -webkit-animation: slideDown 10s linear;
+    -moz-animation: slideDown 10s linear;
+    -o-animation: slideDown 10s linear;
+    animation: slideDown 10s linear;
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make it to the center */
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    /* position at center Y */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* Y center of the screen */
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+
+    /* box shadow */
+    -webkit-box-shadow: 10px 15px 10px #000;
+    -moz-box-shadow: 10px 15px 10px #000;
+    box-shadow: 10px 15px 10px #000;
+
+    /* rounded */
+    border-radius: 15px;
+
+    background-color: rgb(99, 99, 99);
+
+    color: white;
+
+    /* make it stay */
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+#title-quotes {
+    /* make it to the center */
+    text-align: center;
+    
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make rainbow */
+    -webkit-animation: rainbow 2s ease-in-out infinite;
+    -moz-animation: rainbow 2s ease-in-out infinite;
+    -o-animation: rainbow 2s ease-in-out infinite;
+    animation: rainbow 2s ease-in-out infinite;
+}
+
+#quotes {
+    /* make it center */
+    text-align: center;
+}
+
+
+/* list animation */
+@keyframes slideDown {
+    0% {
+        top: 30px;
+        opacity: 0;
+    }
+
+    20% {
+        top: 20px;
+        opacity: 0.5;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+
+    20% {
+        bottom: -50px;
+        opacity: 0.5;
+    }
+
+    50% {
+        bottom: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 0px;
+    }
+}
+
+@keyframes idleAnimation {
+    0% {
+        -webkit-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateX(360deg);
+        -ms-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: translateX( -15px ) rotate( -2deg );
+    }
+
+    50% {
+        transform: translateX( 15px ) rotate( 2deg );
+    }
+
+    100% {
+        transform: translateX( -15px ) rotate( -2deg );
+    }
+}
+
+@keyframes neon {
+    0% {
+        color: #fff;
+    }
+
+    100% {
+        color: #000;
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        color: rgb(255, 218, 218);
+    }
+
+    25% {
+        color: rgb(255, 255, 198);
+    }
+
+    50% {
+        color: rgb(184, 252, 184);
+    }
+
+    75% {
+        color: rgb(173, 253, 253);
+    }
+
+    90% {
+        color: rgb(255, 255, 255);
+    }
+
+    100% {
+        color: rgb(128, 128, 245);
+    }
+}
+
+@keyframes textCountDownAnimation {
+    0% {
+        -webkit-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateX(360deg);
+        -ms-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    }
+}
+
+/* support all devices */
+@media screen and (max-width: 500px) {
+    #container {
+        /* make animation stop */
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        animation: none;
+    }
+}
