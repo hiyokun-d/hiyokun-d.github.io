@@ -212,6 +212,4 @@ function countDownNewYears() {
     }
 }
 
-
-//test
 countDownNewYears();
