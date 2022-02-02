@@ -13,6 +13,10 @@ const someQuotes = document.getElementById("some-quotes");
 const quote = document.getElementById("quotes");
 const titleQuotes = document.getElementById("title-quotes");
 
+const news = document.getElementById("news");
+const titleNews = document.getElementById("title-news");
+const textNews = document.getElementById("news-text");
+
 const quotes = [
   {
     text: "Kita tidak bisa mengubah apapun, kita hanya bisa mengubah apa yang kita inginkan",
@@ -67,8 +71,31 @@ let isHoverContainer = false;
 let changeText = false
 let theTimeIsLessThan100 = false
 
+// check user country and then console.log it
+
+function getUserCountry() {
+    fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => console.log(error));
+}
+
+fetch(
+  `https://newsapi.org/v2/top-headlines?country=id&apiKey=b2b7f668eb284c1595d7469eb48ad018`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    let news = data.articles;
+    let newsRandom = news[Math.floor(Math.random() * news.length)];
+      textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a> ${newsRandom.description} <br> ${newsRandom.publishedAt} <br> ${newsRandom.source.name} <br> <a href="${newsRandom.url}">Read More</a> this is is news then <br> ${newsRandom.author}`;
+  });
+
+
 // make countDown to the 2023 also change the textCountDown
 function countDownNewYears() {
+    
     requestAnimationFrame(countDownNewYears);
     const now = new Date();
     const newYears = new Date(2023, 0, 1);
@@ -78,7 +105,6 @@ function countDownNewYears() {
     // make minutes and seconds
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    // zona waktu user text
     const timeZone = now.toLocaleString();
     
     // make textCountDown

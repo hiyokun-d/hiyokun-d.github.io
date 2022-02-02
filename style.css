@@ -314,8 +314,144 @@
     text-align: center;
 }
 
+#news {
+    /* make it bottom of some-quotes */
+    position: relative;
+    bottom: -200px;
+
+    /* make it to the center of the pages */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make animation slide to the right */
+    -webkit-animation: slideRight 2s linear;
+    -moz-animation: slideRight 2s linear;
+    -o-animation: slideRight 2s linear;
+    animation: slideRight 2s linear;
+
+
+    /* make it have box shadow and rounded box also rounded border */
+    -webkit-box-shadow: 30px 10px 60px #000;
+    -moz-box-shadow: 30px 10px 60px #000;
+    box-shadow: 30px 10px 60px #000;
+
+    border-radius: 15px;
+
+    /* make it stay */
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make it to the center */
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    background-color: whitesmoke;
+}
+
+#title-news {
+    /* make the text to the center */
+    text-align: center;
+
+    /* make it better */
+    font-size: 1.5em;
+    font-weight: bold;
+
+    /* make the text looks good */
+    color: rgba(0, 0, 0, 0.671);
+
+    /* make the font looks like what news use */
+    font-family: 'Open Sans', sans-serif;
+
+    /* make the text looks like good news and title */
+    font-weight: bold;
+
+    /* make the text looks like good news and title */
+    font-style: italic;
+
+    /* make the text looks like good news and title */
+    font-variant: small-caps;
+
+    /* make the text looks like good news and title */
+    text-transform: uppercase;
+
+    /* make the text looks like good news and title */
+    letter-spacing: 1px;
+}
+
+#news-text {
+    /* make it looks like in the news text */
+    font-size: 1.2em;
+    font-weight:500px;
+
+    letter-spacing: 2px;
+}
 
 /* list animation */
+@keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(-500px);
+        -ms-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
+    60% {
+        -webkit-transform: translateX(60%);
+        -ms-transform: translateX(60%);
+        transform: translateX(60%);
+    }
+
+    70% {
+                /* make it skew */
+        -webkit-transform: skewX(50deg);
+        -ms-transform: skewX(50deg);
+        transform: skewX(50deg);
+
+    }
+
+    80% {
+                -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+
+    90% {
+               -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%); 
+    }
+    100% {
+        -webkit-transform: translateX(0%) skewX(0deg);
+        -ms-transform: translateX(0%) skewX(0deg);
+        transform: translateX(0%) skewX(0deg);
+    }
+}
+
 @keyframes slideDown {
     0% {
         top: 30px;
