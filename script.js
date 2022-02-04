@@ -83,6 +83,7 @@ function getUserCountry() {
         fetch("http://ipwhois.app/json/")
             .then((response) => response.json())
             .then((data) => {
+                if (data.success) {
                     console.log(data);
                     textUserLocation.innerHTML = `
           country: ${data.country}, <br>
@@ -96,7 +97,16 @@ function getUserCountry() {
               ${data.currency_symbol}, <br>
              flags: <img src="${data.country_flag}" style="width: 30px; bottom: 0px; position: absolute;">, <br>
                 `;
-            });
+                } else {
+                    if (
+                      data.message == "IP address not found" ||
+                      data.message == "you've hit the monthly limit"
+                    ) {
+                        textUserLocation.innerHTML = "wait until next month!";
+                        userLocation.style.display = "none";
+                    }
+                }
+                });
     } else {
         userLocation.style.backgroundColor = "red";
         textUserLocation.innerHTML = "Sorry, but your browser doesn't support Geolocation or you have denied access to it.";
@@ -105,33 +115,47 @@ function getUserCountry() {
 
 getUserCountry()
 
-fetch(
-  `https://newsapi.org/v2/top-headlines?country=id&apiKey=b2b7f668eb284c1595d7469eb48ad018`
-).then((response) => response.json()).then((data) => {
-    let news = data.articles;
-      let newsRandom = news[Math.floor(Math.random() * news.length)];
-      if (newsRandom.author == null) {
-          newsRandom.author = "gak di ketahui";
-      }
+// grab World healt organization api and console.log it
+fetch("https://coronavirus-19-api.herokuapp.com/all")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.cases > 0) {
+            news.style.backgroundColor = "rgba(155, 0, 0, 0.8)";
+            titleNews.innerHTML = `COVID 19`;
+            textNews.innerHTML = `cases: ${data.cases} all around of the world <br> deaths: ${data.deaths} <br> recovered: ${data.recovered} <br> pls dont panic, we are here to help you also thanks to all of you who are helping us to fight this virus <br> WEAR YOUR MASK AND SHIELD <br> GET SAFE <br> GET HEALED <br> GET VACCINE
+            <br> the world is not safe pls stay home and stay safe <br>`;
+        } else {
+            fetch(
+                `https://newsapi.org/v2/top-headlines?country=id&apiKey=b2b7f668eb284c1595d7469eb48ad018`
+            ).then((response) => response.json()).then((data) => {
+                let news = data.articles;
+                let newsRandom = news[Math.floor(Math.random() * news.length)];
+                if (newsRandom.author == null) {
+                    newsRandom.author = "gak di ketahui";
+                }
 
-      if (newsRandom.description == null) {
-          newsRandom.description = "gak bisa mengakses deskripsi berita";
-      }
+                if (newsRandom.description == null) {
+                    newsRandom.description = "gak bisa mengakses deskripsi berita";
+                }
       
-      if (newsRandom.title == null) {
-          newsRandom.title = "gak bisa mengakses judul berita";
-      }
+                if (newsRandom.title == null) {
+                    newsRandom.title = "gak bisa mengakses judul berita";
+                }
       
-      textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a>
+                textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a>
         <br>
       ${newsRandom.description} <br> 
       ${newsRandom.publishedAt} <br> 
       ${newsRandom.source.name} <br> 
       <a href="${newsRandom.url}">Read More</a> this is is news then <br>
       penulis berita: ${newsRandom.author}`;
-  }).catch((error) => {
-      console.log(error);
-  });
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    });
+        
 
 // make countDown to the 2023 also change the textCountDown
 function countDownNewYears() {
