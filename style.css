@@ -215,9 +215,9 @@
 #footers {
     font-family: 'Open Sans', sans-serif;
     font-size: 1em;
-    color: #000;
-    position: absolute;
-    bottom: 0;
+    /* make this footers stay on bottom of all div */
+    position: relative;
+    bottom: -50px;
     left: 0;
     right: 0;
     margin: auto;
@@ -229,7 +229,6 @@
     -moz-box-shadow: 0px 0px 10px #000;
     box-shadow: 0px 0px 10px #000;
     width: max-content !important;
-    margin: auto;
     border-radius: 10px;
 }
 
@@ -317,7 +316,7 @@
 #news {
     /* make it bottom of some-quotes */
     position: relative;
-    bottom: -200px;
+    bottom: -150px;
 
     /* make it to the center of the pages */
     -webkit-transform-origin: 50% 50%;
@@ -341,12 +340,6 @@
     -moz-animation: slideRight 2s linear;
     -o-animation: slideRight 2s linear;
     animation: slideRight 2s linear;
-
-
-    /* make it have box shadow and rounded box also rounded border */
-    -webkit-box-shadow: 30px 10px 60px #000;
-    -moz-box-shadow: 30px 10px 60px #000;
-    box-shadow: 30px 10px 60px #000;
 
     border-radius: 15px;
 
@@ -373,6 +366,11 @@
     perspective: 1000;
 
     background-color: whitesmoke;
+
+        /* make it have box shadow and rounded box also rounded border */
+    -webkit-box-shadow: 30px 10px 60px #000;
+    -moz-box-shadow: 30px 10px 60px #000;
+    box-shadow: 30px 10px 60px #000;
 }
 
 #title-news {
@@ -413,6 +411,94 @@
     letter-spacing: 2px;
 }
 
+#userLocation {
+    /* make it to the bottom of news and at front of news */
+    position: relative;
+    bottom: -200px;
+    left: 0px;
+
+    /* make this div is wider like all div */
+    width: 100%;
+
+    /* make it to the center */
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* make it to the center */
+    -webkit-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+
+    /* make it to the center */
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* make it to the center */
+    -webkit-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    /* make it to the center */
+    -webkit-animation: neon 2s linear;
+    -moz-animation: neon 2s linear;
+    -o-animation: neon 2s linear;
+    animation: neon 2s linear;
+
+    /* make it have lightBoxshadow */
+    -webkit-box-shadow: 30px 10px 60px #000;
+    -moz-box-shadow: 30px 10px 60px #000;
+    box-shadow: 30px 10px 60px #000;
+
+}
+
+#userLocation-text {
+/* make this text is even cool */
+    font-size: 1.5em;
+
+    /* make the text looks good */
+    color: rgba(0, 0, 0, 0.671);
+
+    /* make the font looks like what news use */
+    font-family: 'Open Sans', sans-serif;
+
+    /* make the text looks like good news and title */
+    font-variant: small-caps;
+}
+
+#title-userLocation {
+    /* make the text to the center */
+    text-align: center;
+
+    /* make it better */
+    font-size: 1.5em;
+    font-weight: bold;
+
+    /* make the text looks good */
+    color: rgba(0, 0, 0, 0.671);
+
+    /* make the font looks like what news use */
+    font-family: 'Open Sans', sans-serif;
+
+    /* make the text looks like good news and title */
+    font-weight: bold;
+
+    /* make the text looks like good news and title */
+    font-style: italic;
+
+    /* make the text looks like good news and title */
+    font-variant: small-caps;
+
+    /* make the text looks like good news and title */
+    text-transform: uppercase;
+
+    /* make the text looks like good news and title */
+    letter-spacing: 1px;
+}
+
 /* list animation */
 @keyframes slideRight {
     0% {
@@ -424,6 +510,7 @@
         -webkit-transform: translateX(60%);
         -ms-transform: translateX(60%);
         transform: translateX(60%);
+        overflow: hidden;
     }
 
     70% {
@@ -431,7 +518,7 @@
         -webkit-transform: skewX(50deg);
         -ms-transform: skewX(50deg);
         transform: skewX(50deg);
-
+        overflow: hidden;
     }
 
     80% {
@@ -444,11 +531,16 @@
                -webkit-transform: translateX(50%);
         -ms-transform: translateX(50%);
         transform: translateX(50%); 
+        overflow: hidden;
     }
     100% {
         -webkit-transform: translateX(0%) skewX(0deg);
         -ms-transform: translateX(0%) skewX(0deg);
         transform: translateX(0%) skewX(0deg);
+            /* make it have box shadow and rounded box also rounded border */
+    -webkit-box-shadow: 50px 15px 65px #000;
+    -moz-box-shadow: 50px 15px 65px #000;
+    box-shadow: 50px 15px 65px #000;
     }
 }
 
@@ -471,22 +563,23 @@
 
 @keyframes slideUp {
     0% {
-        bottom: -100px;
+        bottom: -200px;
         opacity: 0;
     }
 
     20% {
-        bottom: -50px;
-        opacity: 0.5;
+        bottom: -150px;
+        opacity: 0;
     }
 
     50% {
-        bottom: 0px;
-        opacity: 1;
+        bottom: -100px;
+        opacity: 0.3;
     }
 
     100% {
-        bottom: 0px;
+        bottom: -50px;
+        opacity: 1;
     }
 }
 

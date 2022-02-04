@@ -17,6 +17,10 @@ const news = document.getElementById("news");
 const titleNews = document.getElementById("title-news");
 const textNews = document.getElementById("news-text");
 
+const userLocation = document.getElementById("userLocation");
+const titleUserLocation = document.getElementById("title-userLocation");
+const textUserLocation = document.getElementById("userLocation-text");
+
 const quotes = [
   {
     text: "Kita tidak bisa mengubah apapun, kita hanya bisa mengubah apa yang kita inginkan",
@@ -65,7 +69,7 @@ const quotes = [
   },
 ];
     
-const quotesRandom = quotes[Math.floor(Math.random() * quotes.length)];
+let quotesRandom = quotes[Math.floor(Math.random() * quotes.length)];
 
 let isHoverContainer = false;
 let changeText = false
@@ -78,9 +82,12 @@ function getUserCountry() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population : ${data.country_population}`;
         })
         .catch(error => console.log(error));
 }
+
+getUserCountry()
 
 fetch(
   `https://newsapi.org/v2/top-headlines?country=id&apiKey=b2b7f668eb284c1595d7469eb48ad018`
@@ -88,17 +95,36 @@ fetch(
     .then((response) => response.json())
   .then((data) => {
     let news = data.articles;
-    let newsRandom = news[Math.floor(Math.random() * news.length)];
-      textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a> ${newsRandom.description} <br> ${newsRandom.publishedAt} <br> ${newsRandom.source.name} <br> <a href="${newsRandom.url}">Read More</a> this is is news then <br> ${newsRandom.author}`;
+      let newsRandom = news[Math.floor(Math.random() * news.length)];
+      if (newsRandom.author == null) {
+          newsRandom.author = "gak di ketahui";
+      }
+
+      if (newsRandom.description == null) {
+          newsRandom.description = "gak bisa mengakses deskripsi berita";
+      }
+      
+      if (newsRandom.title == null) {
+          newsRandom.title = "gak bisa mengakses judul berita";
+      }
+      
+
+      textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a>
+        <br>
+      ${newsRandom.description} <br> 
+      ${newsRandom.publishedAt} <br> 
+      ${newsRandom.source.name} <br> 
+      <a href="${newsRandom.url}">Read More</a> this is is news then <br>
+
+      penulis berita: ${newsRandom.author}`;
   }).catch((error) => {
       console.log(error);
       news.style.display = "none";
   });
 
-
 // make countDown to the 2023 also change the textCountDown
 function countDownNewYears() {
-    
+
     requestAnimationFrame(countDownNewYears);
     const now = new Date();
     const newYears = new Date(2023, 0, 1);
@@ -169,6 +195,16 @@ function countDownNewYears() {
                 isHoverContainer = true
                 changeText = true
 
+                news.style.transition = "all 1s";
+                news.style.transform = "translateX(-150%) translateY(100px)";
+
+                footers.style.transition = "all 1s";
+                footers.style.transform = "translateY(150px)";
+                
+                userLocation.style.transition = "all 1s";
+                userLocation.style.transform =
+                  "translateX(0) translateY(500px)";
+
             });
 
             // if not make it normal
@@ -188,9 +224,14 @@ function countDownNewYears() {
                     isHoverContainer = false;
                 }, 10000);
 
-                // make container animation start
+                news.style.transition = "all 1s";
+                news.style.transform = "translateX(0) translateY(0px)";
 
-                // after a few seconds make it play animation swing again
+                footers.style.transition = "all 1s";
+                footers.style.transform = "translateY(0px)";
+
+                userLocation.style.transition = "all 1s";
+                userLocation.style.transform = "translateX(0) translateY(0px)";
             });
         } else {
             // if user use mobile phone
