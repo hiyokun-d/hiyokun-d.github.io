@@ -78,16 +78,29 @@ let theTimeIsLessThan100 = false
 // check user country and then console.log it
 
 function getUserCountry() {
-    fetch("https://ipapi.co/json/")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population: ${data.country_population}`;
-        })
-        .catch(error => {
-            console.log(error)
-            
-        });
+    // if pages have permission to access location do this
+    if (navigator.geolocation) {
+        fetch("http://ipwhois.app/json/")
+            .then((response) => response.json())
+            .then((data) => {
+                    console.log(data);
+                    textUserLocation.innerHTML = `
+          country: ${data.country}, <br>
+             city: ${data.city}, <br>
+             region: ${data.region}, <br>
+             timezone: ${data.timezone}, <br>
+             continent: ${data.continent}, <br>
+             country_code: ${data.country_code}, <br>
+             currency: ${data.currency}, 
+         ${data.currency_code}, 
+              ${data.currency_symbol}, <br>
+             flags: <img src="${data.country_flag}" style="width: 30px; bottom: 0px; position: absolute;">, <br>
+                `;
+            });
+    } else {
+        userLocation.style.backgroundColor = "red";
+        textUserLocation.innerHTML = "Sorry, but your browser doesn't support Geolocation or you have denied access to it.";
+    }
 }
 
 getUserCountry()
@@ -109,7 +122,6 @@ fetch(
           newsRandom.title = "gak bisa mengakses judul berita";
       }
       
-
       textNews.innerHTML = `<a href="${newsRandom.url}">${newsRandom.title}</a>
         <br>
       ${newsRandom.description} <br> 
