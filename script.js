@@ -82,7 +82,7 @@ function getUserCountry() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population : ${data.country_population}`;
+           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population: ${data.country_population}, <br> your country flags:`;
         })
         .catch(error => console.log(error));
 }
