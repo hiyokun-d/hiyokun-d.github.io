@@ -94,9 +94,7 @@ getUserCountry()
 
 fetch(
   `https://newsapi.org/v2/top-headlines?country=id&apiKey=b2b7f668eb284c1595d7469eb48ad018`
-)
-    .then((response) => response.json())
-  .then((data) => {
+).then((response) => response.json()).then((data) => {
     let news = data.articles;
       let newsRandom = news[Math.floor(Math.random() * news.length)];
       if (newsRandom.author == null) {
@@ -118,7 +116,6 @@ fetch(
       ${newsRandom.publishedAt} <br> 
       ${newsRandom.source.name} <br> 
       <a href="${newsRandom.url}">Read More</a> this is is news then <br>
-
       penulis berita: ${newsRandom.author}`;
   }).catch((error) => {
       console.log(error);
