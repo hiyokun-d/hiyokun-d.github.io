@@ -82,9 +82,12 @@ function getUserCountry() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population: ${data.country_population}, <br> your country flags:`;
+           textUserLocation.innerHTML = `your country: ${data.country_name}, <br> your city: ${data.city}, <br> timezone: ${data.timezone}, <br> region: ${data.region}, currency code: ${data.currency}, <br> currency name: ${data.currency_name}, <br> currency symbol: ${data.currency_symbol}, <br> country population: ${data.country_population}`;
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error)
+            
+        });
 }
 
 getUserCountry()
@@ -119,7 +122,6 @@ fetch(
       penulis berita: ${newsRandom.author}`;
   }).catch((error) => {
       console.log(error);
-      news.style.display = "none";
   });
 
 // make countDown to the 2023 also change the textCountDown
