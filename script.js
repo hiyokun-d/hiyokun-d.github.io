@@ -106,8 +106,12 @@ function getUserCountry() {
                         userLocation.style.display = "none";
                     }
                 }
-                });
+            }).catch((error) => {
+                console.log(error);
+                userLocation.style.display = "none";
+            });
     } else {
+        userLocation.style.display = "none";
         userLocation.style.backgroundColor = "red";
         textUserLocation.innerHTML = "Sorry, but your browser doesn't support Geolocation or you have denied access to it.";
     }
