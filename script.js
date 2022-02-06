@@ -115,7 +115,7 @@ function getUserCountry() {
 
 getUserCountry()
 
-// grab World healt organization api and console.log it
+// grab World health organization api and console.log it
 fetch("https://coronavirus-19-api.herokuapp.com/all")
     .then((response) => response.json())
     .then((data) => {
@@ -296,22 +296,77 @@ function countDownNewYears() {
         }
     }
 
-    // if day is less than 100 and more than 50 make the background color is darker
-    if (days <= 100 && days >= 50) {
-        theTimeIsLessThan100 = true
-    footers.style.backgroundColor = "white";
-    titleCountDown.style.color = "white"
-    textCountDown.style.color = "white"
-        container.style.backgroundColor = "rgb(0, 0, 0, 0.5)"
-    body.style.backgroundColor = "rgb(0, 0, 0, 0.5)"
-        someQuotes.style.backgroundColor = "rgb(50, 50, 0, 0.5)"
-        // make transition
-        someQuotes.style.transition = "all 1s";
-        titleCountDown.style.transition = "all 1s";
-        textCountDown.style.transition = "all 1s";
-        container.style.transition = "all 1s";
-        body.style.transition = "all 1s";
+    let test = false
 
+    // if day is less than 100 and more than 50 make the background color is darker
+    if (days < 100 && days > 50) {
+      theTimeIsLessThan100 = true;
+      footers.style.backgroundColor = "white";
+      titleCountDown.style.color = "white";
+      textCountDown.style.color = "white";
+      container.style.backgroundColor = "rgb(0, 0, 0, 0.5)";
+      body.style.backgroundColor = "rgb(0, 0, 0, 0.5)";
+      someQuotes.style.backgroundColor = "rgb(50, 50, 0, 0.5)";
+      // make transition
+      someQuotes.style.transition = "all 1s";
+      titleCountDown.style.transition = "all 1s";
+      textCountDown.style.transition = "all 1s";
+      container.style.transition = "all 1s";
+      body.style.transition = "all 1s";
+
+      // if time left is more than 0 
+          if (window.innerWidth > 768) {
+              container.addEventListener("mouseover", () => {
+                  titleCountDown.style.color = "white";
+                  textCountDown.style.color = "white";
+                  container.style.backgroundColor = "white"
+                  // make the some quotes disappear go to the left with transition
+                  someQuotes.style.transition = "all 1s";
+                  someQuotes.style.transform = "translateX(-150%) translateY(100px)";
+
+                  container.style.transform = "scale(1.2) translate(0%, 50%)";
+                  container.style.backgroundColor = "black";
+                  container.style.color = "white";
+                  isHoverContainer = true;
+                  changeText = true;
+
+                  news.style.transition = "all 1s";
+                  news.style.transform = "translateX(-150%) translateY(100px)";
+
+                  footers.style.transition = "all 1s";
+                  footers.style.transform = "translateY(150px)";
+
+                  userLocation.style.transition = "all 1s";
+                  userLocation.style.transform = "translateX(0) translateY(500px)";
+              });
+
+              // if not make it normal
+              container.addEventListener("mouseout", () => {
+                  container.style.transform = "scale(1) translate(0%, 0%)";
+                  container.style.backgroundColor = "RGBA(0, 0, 0, 0.5)";
+                  container.style.color = "black";
+
+                  titleCountDown.style.color = "black";
+                  textCountDown.style.color = "black";
+
+                  // make the some quotes appear go to the right with transition
+                  someQuotes.style.transition = "all 1s";
+                  someQuotes.style.transform = "translateX(0) translateY(100px)";
+                  changeText = false;
+                  setTimeout(() => {
+                      isHoverContainer = false;
+                  }, 10000);
+
+                  news.style.transition = "all 1s";
+                  news.style.transform = "translateX(0) translateY(0px)";
+
+                  footers.style.transition = "all 1s";
+                  footers.style.transform = "translateY(0px)";
+
+                  userLocation.style.transition = "all 1s";
+                  userLocation.style.transform = "translateX(0) translateY(0px)";
+              });
+        } 
     } else {
         theTimeIsLessThan100 = false
     }
